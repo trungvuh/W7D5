@@ -2,6 +2,7 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const initialState = {
   currentUser: null,
+  errors: []
 };
 
 const sessionReducer =(state = initialState, action) => {
