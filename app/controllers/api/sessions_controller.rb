@@ -2,23 +2,23 @@ class Api::SessionsController < ApplicationController
 
   def create
     @user = User.find_by_crenditials(
-      [:user][:username],
-      [:user][:password]
+      params[:user][:username],
+      params[:user][:password]
     )
     if @user
       login(@user)
       redirect_to root_url
     else
-      render json: 'Invalid Username or Password'
+      render json: ['Invalid Username or Password']
     end
   end
 
   def destroy
     if current_user
       logout
-      render :json => {}
+      render json: {}
     else
-      render json: 'Invalid user', status: 404
+      render json: ['Invalid user'], status: 404
     end
   end
 
