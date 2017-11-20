@@ -6,7 +6,7 @@ const benchesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_BENCHES:
-      return merge({}, action.benches); //
+      return action.benches; //
 
     default:
       return state;

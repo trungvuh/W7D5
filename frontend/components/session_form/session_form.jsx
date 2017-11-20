@@ -13,6 +13,13 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //look over this one when have time
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
+  }
+
   handleInput(type) {
     return (event) => {
       this.setState({ [type]: event.target.value });
