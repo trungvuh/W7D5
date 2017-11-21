@@ -5,11 +5,12 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
+
     if @user
       login(@user)
-      redirect_to root_url
+      render '/api/users/show'
     else
-      render json: ['Invalid Username or Password']
+      render json: ['Invalid Username or Password'], status: 401
     end
   end
 
